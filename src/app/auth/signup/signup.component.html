@@ -1,1 +1,73 @@
-<p>signup works!</p>
+<div class="signup-page">
+  <div *ngIf="isLoading"
+       class="loading-backdrop"></div>
+  <mat-card class="form-container">
+    <div class="signup-form">
+      <div class="form-title">
+        <h2>הירשם</h2>
+      </div>
+      <form [formGroup]="signupForm">
+        <div class="form-inputs">
+          <mat-form-field appearance="outline">
+            <mat-label>שם פרטי</mat-label>
+            <input matInput
+                   id="firstName"
+                   formControlName="firstName"
+                   required
+                   type="text">
+
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>שם משפחה</mat-label>
+            <input matInput
+                   id="lastName"
+                   formControlName="lastName"
+                   required
+                   type="text">
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>מייל</mat-label>
+            <input matInput
+                   id="email"
+                   formControlName="email"
+                   required
+                   type="email">
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>סיסמה</mat-label>
+            <input matInput
+                   id="password"
+                   formControlName="password"
+                   required
+                   type="password">
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>אימות סיסמה</mat-label>
+            <input matInput
+                   id="confirmPassword"
+                   formControlName="confirmPassword"
+                   required
+                   type="confirmPassword">
+          </mat-form-field>
+        </div>
+        <div class="signup-buttons">
+          <button mat-raised-button
+                  class="signup-button"
+                  color="primary"
+                  [ngClass]="signupForm.valid ? 'valid' : ''"
+                  [disabled]="!signupForm.valid"
+                  type="submit"
+                  (click)="signup()">
+            הירשם</button>
+          <button mat-raised-button
+                  color="primary"
+                  class="signup-button"
+                  type="button"
+                  routerLink="../login">
+            התבחר
+          </button>
+        </div>
+      </form>
+    </div>
+  </mat-card>
+</div>

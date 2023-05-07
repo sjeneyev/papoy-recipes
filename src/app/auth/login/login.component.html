@@ -1,12 +1,54 @@
 <div class="login-page">
-  <div *ngIf="isLoading" class="loading-backdrop"></div>
+  <div *ngIf="isLoading"
+       class="loading-backdrop"></div>
   <mat-card class="form-container">
-    <div class="login-form-wrap">
-      <div class="login-form">
-        <div class="form-title">
-          <h2>Login</h2>
-        </div>
+    <div class="login-form">
+      <div class="form-title">
+        <h2>התחבר</h2>
       </div>
+      <form [formGroup]="loginForm">
+        <div class="form-inputs">
+          <mat-form-field appearance="outline">
+            <mat-label>מייל</mat-label>
+            <input matInput
+                   id="email"
+                   formControlName="email"
+                   required
+                   type="email" />
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>סיסמה</mat-label>
+            <input matInput
+                   id="password"
+                   formControlName="password"
+                   required
+                   type="password" />
+          </mat-form-field>
+          <mat-error class=""
+                     *ngIf="errorMsg">
+            <i class="mdi mdi-alert-circle"></i>
+            <div>{{ errorMsg }}</div>
+          </mat-error>
+        </div>
+        <div class="login-buttons">
+          <button mat-raised-button
+                  class="login-button"
+                  color="primary"
+                  [ngClass]="loginForm.valid ? 'valid' : ''"
+                  [disabled]="!loginForm.valid"
+                  type="submit"
+                  (click)="login()">
+            התחבר
+          </button>
+          <button mat-raised-button
+                  color="primary"
+                  class="login-button"
+                  type="button"
+                  routerLink="../signup">
+            הירשם
+          </button>
+        </div>
+      </form>
     </div>
   </mat-card>
 </div>
