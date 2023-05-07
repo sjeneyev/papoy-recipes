@@ -14,8 +14,9 @@
                    id="firstName"
                    formControlName="firstName"
                    required
-                   type="text">
-
+                   type="text"
+                   #firstName>
+            <mat-error>{{getErrorMessage(signupForm.controls['firstName'])}}</mat-error>
           </mat-form-field>
           <mat-form-field appearance="outline">
             <mat-label>שם משפחה</mat-label>
@@ -24,6 +25,7 @@
                    formControlName="lastName"
                    required
                    type="text">
+            <mat-error>{{getErrorMessage(signupForm.controls['lastName'])}}</mat-error>
           </mat-form-field>
           <mat-form-field appearance="outline">
             <mat-label>מייל</mat-label>
@@ -32,6 +34,7 @@
                    formControlName="email"
                    required
                    type="email">
+            <mat-error>{{getErrorMessage(signupForm.controls['email'])}}</mat-error>
           </mat-form-field>
           <mat-form-field appearance="outline">
             <mat-label>סיסמה</mat-label>
@@ -40,6 +43,7 @@
                    formControlName="password"
                    required
                    type="password">
+            <mat-error>{{getErrorMessage(signupForm.controls['password'])}}</mat-error>
           </mat-form-field>
           <mat-form-field appearance="outline">
             <mat-label>אימות סיסמה</mat-label>
@@ -47,7 +51,8 @@
                    id="confirmPassword"
                    formControlName="confirmPassword"
                    required
-                   type="confirmPassword">
+                   type="password">
+            <mat-error>{{getErrorMessage(signupForm.controls['confirmPassword'])}}</mat-error>
           </mat-form-field>
         </div>
         <div class="signup-buttons">

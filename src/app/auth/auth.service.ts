@@ -19,7 +19,7 @@ export class AuthService {
   login({ email, password }) {
     return this.http
       .post<AuthResponseData>(
-        'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDdSMrjl6W5XnioItat9vcy-zFRYaEThNA',
+        'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDdSMrjl6W5XnioItat9vcy-zFRYaEThNA',
         {
           email,
           password,
@@ -41,7 +41,7 @@ export class AuthService {
   register(formData) {
     return this.http
       .post<AuthResponseData>(
-        'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=',
+        'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDdSMrjl6W5XnioItat9vcy-zFRYaEThNA',
         formData
       )
       .pipe(
@@ -88,6 +88,6 @@ export class AuthService {
     if (!errorRes.error) {
       return throwError(() => new Error(errorMessage));
     }
-    return throwError(errorRes.error.error);
+    return throwError(() => new Error(errorRes.error.error));
   }
 }

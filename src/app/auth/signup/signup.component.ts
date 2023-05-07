@@ -13,15 +13,15 @@ import { AuthResponseData } from 'src/app/interfaces/interfaces';
 export class SignupComponent {
   error = null;
   isLoading = false;
-  // validFirstName = false;
-  // validUsername = true;
-  // validEmail = true;
+  validFirstName = false;
+  validLastname = true;
+  validEmail = true;
 
   public passwordValidatePattern: RegExp = /^(?=.*[a-zA-Z])(?=.*[0-9])/;
 
   signupForm = this.formBuilder.group({
-    firstName: [null, [Validators.required]],
-    lastName: [null, [Validators.required]],
+    firstName: [null, [Validators.required, Validators.minLength(2)]],
+    lastName: [null, [Validators.required, Validators.minLength(2)]],
     email: [null, [Validators.required, Validators.email]],
     password: [
       null,
@@ -69,7 +69,7 @@ export class SignupComponent {
         }
         if (errorMessage === 'EMAIL_IN_USE') {
           this.formControls.email.setErrors({ incorrect: true });
-          // this.validEmail = false;
+          this.validEmail = false;
         }
       },
     });
@@ -94,9 +94,25 @@ export class SignupComponent {
 
   getErrorMessage(control: FormControl) {
     if (control.hasError('required')) {
-      return 'You must enter a value';
+      return 'שדה חובה';
     }
 
-    return control.hasError('email') ? 'Not a valid value' : '';
+    if (control.hasError('minlength')) {
+      return `חייב להכיל לפחות ${control.errors['minlength'].requiredLength} תווים`;
+    }
+
+    if (control.hasError('email')) {
+      return 'כתובת מייל לא חוקית';
+    }
+
+    if (control.hasError('pattern')) {
+      return 'סיסמה חלשה מדי';
+    }
+
+    if (control.hasError('unconfirmedPassword')) {
+      return 'סיסמה לא תואמת';
+    }
+
+    return 'משהו השתבש';
   }
 }
