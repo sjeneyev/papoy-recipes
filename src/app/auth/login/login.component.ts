@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 
@@ -19,8 +19,11 @@ export class LoginComponent {
 
   constructor(private authService: AuthService, private router: Router) {}
 
+  get formControls() {
+    return this.loginForm.controls;
+  }
+
   login() {
-    console.log(this.formControls.email.value, this.formControls.password.value);
     this.isLoading = true;
     const userData = {
       email: this.formControls.email.value,
@@ -31,21 +34,16 @@ export class LoginComponent {
     authObs.subscribe({
       next: (response) => {
         this.isLoading = false;
-        this.router.navigate(['./home']);
+
+        this.router.navigate(['./recipes']);
       },
       error: (errorMessage) => {
         this.isLoading = false;
         if (errorMessage === 'Unauthorized') {
           this.errorMsg = 'Wrong credentials. Please try again';
-          console.log(this.errorMsg);
         }
         this.errorMsg = 'אחד הפרטים שגויים';
-        console.log(errorMessage);
       },
     });
-  }
-
-  get formControls() {
-    return this.loginForm.controls;
   }
 }

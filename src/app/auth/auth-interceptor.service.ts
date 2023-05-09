@@ -13,10 +13,7 @@ import { exhaustMap, Observable, take } from 'rxjs';
 export class AuthInterceptorService implements HttpInterceptor {
   constructor(private authService: AuthService) {}
 
-  intercept(
-    req: HttpRequest<any>,
-    next: HttpHandler
-  ): Observable<HttpEvent<any>> {
+  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return this.authService.user.pipe(
       take(1),
       exhaustMap((user) => {

@@ -40,6 +40,10 @@ export class SignupComponent {
     private router: Router
   ) {}
 
+  get formControls() {
+    return this.signupForm.controls;
+  }
+
   signup(): void {
     this.isLoading = true;
     // this.validEmail = true;
@@ -86,10 +90,6 @@ export class SignupComponent {
         resolve(null);
       }
     });
-  }
-
-  get formControls() {
-    return this.signupForm.controls;
   }
 
   getErrorMessage(control: FormControl) {

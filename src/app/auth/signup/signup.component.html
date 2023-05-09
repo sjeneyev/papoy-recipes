@@ -10,65 +10,65 @@
         <div class="form-inputs">
           <mat-form-field appearance="outline">
             <mat-label>שם פרטי</mat-label>
-            <input matInput
+            <input formControlName="firstName"
                    id="firstName"
-                   formControlName="firstName"
+                   matInput
                    required
-                   type="text"
-                   #firstName>
-            <mat-error>{{getErrorMessage(signupForm.controls['firstName'])}}</mat-error>
+                   type="text" />
+            <mat-error>{{ getErrorMessage(signupForm.controls['firstName']) }}</mat-error>
           </mat-form-field>
           <mat-form-field appearance="outline">
             <mat-label>שם משפחה</mat-label>
-            <input matInput
+            <input formControlName="lastName"
                    id="lastName"
-                   formControlName="lastName"
+                   matInput
                    required
-                   type="text">
-            <mat-error>{{getErrorMessage(signupForm.controls['lastName'])}}</mat-error>
+                   type="text" />
+            <mat-error>{{ getErrorMessage(signupForm.controls['lastName']) }}</mat-error>
           </mat-form-field>
           <mat-form-field appearance="outline">
             <mat-label>מייל</mat-label>
-            <input matInput
+            <input formControlName="email"
                    id="email"
-                   formControlName="email"
+                   matInput
                    required
-                   type="email">
-            <mat-error>{{getErrorMessage(signupForm.controls['email'])}}</mat-error>
+                   type="email" />
+            <mat-error>{{ getErrorMessage(signupForm.controls['email']) }}</mat-error>
           </mat-form-field>
           <mat-form-field appearance="outline">
             <mat-label>סיסמה</mat-label>
-            <input matInput
+            <input formControlName="password"
                    id="password"
-                   formControlName="password"
+                   matInput
                    required
-                   type="password">
-            <mat-error>{{getErrorMessage(signupForm.controls['password'])}}</mat-error>
+                   type="password" />
+            <mat-error>{{ getErrorMessage(signupForm.controls['password']) }}</mat-error>
           </mat-form-field>
           <mat-form-field appearance="outline">
             <mat-label>אימות סיסמה</mat-label>
-            <input matInput
+            <input formControlName="confirmPassword"
                    id="confirmPassword"
-                   formControlName="confirmPassword"
+                   matInput
                    required
-                   type="password">
-            <mat-error>{{getErrorMessage(signupForm.controls['confirmPassword'])}}</mat-error>
+                   type="password" />
+            <mat-error>{{ getErrorMessage(signupForm.controls['confirmPassword']) }}</mat-error>
           </mat-form-field>
         </div>
         <div class="signup-buttons">
-          <button mat-raised-button
-                  class="signup-button"
-                  color="primary"
-                  [ngClass]="signupForm.valid ? 'valid' : ''"
+          <button (click)="signup()"
                   [disabled]="!signupForm.valid"
-                  type="submit"
-                  (click)="signup()">
-            הירשם</button>
-          <button mat-raised-button
-                  color="primary"
+                  [ngClass]="signupForm.valid ? 'valid' : ''"
                   class="signup-button"
-                  type="button"
-                  routerLink="../login">
+                  color="primary"
+                  mat-raised-button
+                  type="submit">
+            הירשם
+          </button>
+          <button class="signup-button"
+                  color="primary"
+                  mat-raised-button
+                  routerLink="../login"
+                  type="button">
             התבחר
           </button>
         </div>

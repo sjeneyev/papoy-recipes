@@ -10,41 +10,41 @@
         <div class="form-inputs">
           <mat-form-field appearance="outline">
             <mat-label>מייל</mat-label>
-            <input matInput
+            <input formControlName="email"
                    id="email"
-                   formControlName="email"
+                   matInput
                    required
                    type="email" />
           </mat-form-field>
           <mat-form-field appearance="outline">
             <mat-label>סיסמה</mat-label>
-            <input matInput
+            <input formControlName="password"
                    id="password"
-                   formControlName="password"
+                   matInput
                    required
                    type="password" />
           </mat-form-field>
-          <mat-error class=""
-                     *ngIf="errorMsg">
+          <mat-error *ngIf="errorMsg"
+                     class="">
             <i class="mdi mdi-alert-circle"></i>
             <div>{{ errorMsg }}</div>
           </mat-error>
         </div>
         <div class="login-buttons">
-          <button mat-raised-button
+          <button (click)="login()"
+                  [disabled]="!loginForm.valid"
+                  [ngClass]="loginForm.valid ? 'valid' : ''"
                   class="login-button"
                   color="primary"
-                  [ngClass]="loginForm.valid ? 'valid' : ''"
-                  [disabled]="!loginForm.valid"
-                  type="submit"
-                  (click)="login()">
+                  mat-raised-button
+                  type="submit">
             התחבר
           </button>
-          <button mat-raised-button
+          <button class="login-button"
                   color="primary"
-                  class="login-button"
-                  type="button"
-                  routerLink="../signup">
+                  mat-raised-button
+                  routerLink="../signup"
+                  type="button">
             הירשם
           </button>
         </div>

@@ -10,15 +10,15 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
-    declarations: [LoginComponent, SignupComponent],
-    imports: [
-        CommonModule,
-        ReactiveFormsModule,
-        AuthRoutingModule,
-        SharedModule,
-        MatCardModule,
-        MatInputModule,
-        MatButtonModule,
-    ],
+  declarations: [LoginComponent, SignupComponent],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    AuthRoutingModule,
+    SharedModule,
+    MatCardModule,
+    MatInputModule,
+    MatButtonModule,
+  ],
 })
 export class AuthModule {}
