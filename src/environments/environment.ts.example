@@ -1,0 +1,5 @@
+export const environment = {
+  production: false,
+  authEndpoint: 'auth_url_should_be here',
+  apiKey: 'key_will_be_here',
+};

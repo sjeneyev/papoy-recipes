@@ -4,6 +4,7 @@ import { User } from '../models/user';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { AuthResponseData } from '../interfaces/interfaces';
+import { environment as env } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -26,14 +27,11 @@ export class AuthService {
 
   login({ email, password }) {
     return this.http
-      .post<AuthResponseData>(
-        'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDdSMrjl6W5XnioItat9vcy-zFRYaEThNA',
-        {
-          email,
-          password,
-          returnSecureToken: true,
-        }
-      )
+      .post<AuthResponseData>(`${env.authEndpoint}:signInWithPassword?key=${env.apiKey}`, {
+        email,
+        password,
+        returnSecureToken: true,
+      })
       .pipe(
         tap((response) => {
           this.handleAuthentication(
@@ -77,10 +75,7 @@ export class AuthService {
   register(formData) {
     formData = { ...formData, returnSecureToken: true };
     return this.http
-      .post<AuthResponseData>(
-        'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDdSMrjl6W5XnioItat9vcy-zFRYaEThNA',
-        formData
-      )
+      .post<AuthResponseData>(`${env.authEndpoint}:signUp?key=${env.apiKey}`, formData)
       .pipe(
         tap((response) => {
           this.handleAuthentication(
