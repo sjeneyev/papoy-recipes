@@ -6,3 +6,8 @@ export interface AuthResponseData {
   localId: string;
   registered?: boolean;
 }
+
+export interface ICategory {
+  id: number;
+  title: string;
+}

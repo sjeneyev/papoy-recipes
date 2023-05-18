@@ -1,0 +1,28 @@
+.header {
+  display: flex;
+  width: 90%;
+  margin: 1.5rem;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  .nav-link {
+    color: #353535;
+    cursor: pointer;
+    font-size: 1.5rem;
+  }
+
+  .categories-menu {
+    width: 10rem;
+
+    .category-item {
+      text-decoration: none;
+    }
+  }
+}
+
+@media (min-width: 40rem) {
+  .category-menu {
+    display: none;
+  }
+}

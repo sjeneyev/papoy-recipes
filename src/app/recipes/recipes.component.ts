@@ -5,4 +5,6 @@ import { Component } from '@angular/core';
   templateUrl: './recipes.component.html',
   styleUrls: ['./recipes.component.scss'],
 })
-export class RecipesComponent {}
+export class RecipesComponent {
+  testArray = [1, 2, 3, 4, 5, 6, 7, 8];
+}

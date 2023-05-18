@@ -10,15 +10,28 @@ import { HttpClientModule } from '@angular/common/http';
 import { RecipeCategoryComponent } from './recipes/recipe-category/recipe-category.component';
 import { RecipeComponent } from './recipes/recipe/recipe.component';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, RecipesComponent, RecipeCategoryComponent, RecipeComponent, RecipeEditComponent],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    RecipesComponent,
+    RecipeCategoryComponent,
+    RecipeComponent,
+    RecipeEditComponent,
+  ],
   imports: [
     AppRoutingModule,
     BrowserModule,
     SharedModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    MatIconModule,
+    MatMenuModule,
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

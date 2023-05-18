@@ -1,6 +1,10 @@
 .main-header {
-  display: none;
-  position: absolute;
+  display: flex;
+  height: 3.75rem;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
 .app-wrap {
@@ -15,11 +19,5 @@
     background: url('../assets/images/login_background.jpg') center/cover no-repeat border-box;
     height: 100%;
     width: 100%;
-  }
-}
-
-@media (min-width: 40rem) {
-  .main-header {
-    display: flex;
   }
 }

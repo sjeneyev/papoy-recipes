@@ -1,1 +1,8 @@
-<p>recipes works!</p>
+<div class="recipes-wrap">
+  <h3 class="categories-title">בחר קטגוריה</h3>
+  <div class="categories-recipes-list">
+    <app-recipe-category *ngFor="let arr of testArray">
+      {{ arr }}
+    </app-recipe-category>
+  </div>
+</div>

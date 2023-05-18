@@ -1,22 +1,18 @@
-<nav class="navbar navbar-expand-lg navbar-light">
-  <a class="navbar-brand" href="#">Navbar</a>
-  <button
-    aria-controls="navbarNavAltMarkup"
-    aria-expanded="false"
-    aria-label="Toggle navigation"
-    class="navbar-toggler"
-    data-target="#navbarNavAltMarkup"
-    data-toggle="collapse"
-    type="button"
-  >
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-      <a class="nav-link" href="#">Features</a>
-      <a class="nav-link" href="#">Pricing</a>
-      <a class="nav-link disabled">Disabled</a>
-    </div>
+<div class="header">
+  <div class="category-menu">
+    <button mat-stroked-button [matMenuTriggerFor]="menu">
+      <span>
+        <mat-icon aria-hidden="false" fontIcon="menu"></mat-icon>
+      </span>
+    </button>
+    <mat-menu class="categories-menu" #menu="matMenu">
+      <ul class="category-list">
+        <li class="category-item" mat-menu-item *ngFor="let category of categories">
+          {{ category.title }}
+        </li>
+      </ul>
+    </mat-menu>
   </div>
-</nav>
+
+  <a class="nav-link" href="" routerLink="/home">מתכוני פפוי</a>
+</div>

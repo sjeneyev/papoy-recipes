@@ -1,5 +1,6 @@
 export const environment = {
   production: false,
+  dataEndpoint: 'data_api_endpoint',
   authEndpoint: 'auth_url_should_be here',
   apiKey: 'key_will_be_here',
 };
