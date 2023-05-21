@@ -12,3 +12,15 @@
   .categories-recipes-list {
   }
 }
+
+@media (min-width: 40rem) {
+  .recipes-wrap {
+    width: 100%;
+    display: flex;
+  }
+  .categories-recipes-list {
+    flex-direction: row;
+    width: 80vw;
+    height: 100vh;
+  }
+}
