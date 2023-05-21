@@ -12,17 +12,28 @@
     font-size: 1.5rem;
   }
 
-  .categories-menu {
+  .actions-menu {
     width: 10rem;
 
-    .category-item {
+    .action-item {
       text-decoration: none;
     }
+  }
+
+  .app-actions {
+    display: none;
   }
 }
 
 @media (min-width: 40rem) {
-  .category-menu {
+  .action-menu {
     display: none;
+  }
+
+  .header .app-actions {
+    display: flex;
+    ul {
+      flex-direction: row;
+    }
   }
 }

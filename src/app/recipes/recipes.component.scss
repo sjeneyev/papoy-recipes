@@ -17,11 +17,12 @@
   }
 }
 
-@media (min-width: 20rem) {
+@media (min-width: 40rem) {
   .recipes-wrap {
     width: 100%;
     display: flex;
   }
+
   .categories-recipes-list {
     flex-direction: row;
     width: 100vw;

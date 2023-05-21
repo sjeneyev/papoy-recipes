@@ -1,17 +1,26 @@
 <div class="header">
-  <div class="category-menu">
+  <div class="action-menu">
     <button mat-stroked-button [matMenuTriggerFor]="menu">
       <span>
         <mat-icon aria-hidden="false" fontIcon="menu"></mat-icon>
       </span>
     </button>
-    <mat-menu class="categories-menu" #menu="matMenu">
-      <ul class="category-list">
-        <li class="category-item" mat-menu-item *ngFor="let category of categories">
-          {{ category.title }}
+    <mat-menu class="actions-menu" #menu="matMenu">
+      <ul class="action-list">
+        <li class="action-item" mat-menu-item (click)="onAddRecipe()">
+          הוסף מתכון
         </li>
+        <li class="action-item" mat-menu-item (click)="onAddCategory()">
+          הוסף קטגוריה
+        </li>
+        <li class="action-item" mat-menu-item (click)="onLogout()">התנתק</li>
       </ul>
     </mat-menu>
+  </div>
+  <div class="app-actions">
+    <div class="app-action">התנתק</div>
+    <div class="app-action">הוסף מתכון</div>
+    <div class="app-action">הוסף קטגוריה</div>
   </div>
 
   <a class="nav-link" href="" routerLink="/home">מתכוני פפוי</a>
