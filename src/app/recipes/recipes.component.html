@@ -1,8 +1,11 @@
 <div class="recipes-wrap">
   <h3 class="categories-title">בחר קטגוריה</h3>
   <div class="categories-recipes-list">
-    <app-recipe-category *ngFor="let cat of categories" [recipe]="cat">
-      {{ cat }}
+    <app-recipe-category
+      *ngFor="let category of categories"
+      [recipe]="category"
+    >
+      {{ category }}
     </app-recipe-category>
   </div>
 </div>

@@ -1,9 +1,12 @@
 <div class="card">
   <div class="card-details">
-    <p class="text-title">בשר</p>
+    <p class="text-title">{{ recipe.title }}</p>
     <div class="text-body">
-      <img class="dish-image" src="../../../assets/images/meat.png" alt="#" />
-      <p>{{ recipe.title }}</p>
+      <img
+        class="dish-image"
+        src="../../../assets/images/{{ recipe.name }}.png"
+        alt="#"
+      />
     </div>
   </div>
   <button class="card-button">פתח</button>

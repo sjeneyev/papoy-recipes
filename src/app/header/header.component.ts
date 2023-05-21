@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ICategory } from '../interfaces/interfaces';
-import { HttpClient } from '@angular/common/http';
-import { environment as env } from '../../environments/environment';
+import { RecipesService } from '../recipes/recipes.service';
 
 @Component({
   selector: 'app-header',
@@ -11,17 +10,15 @@ import { environment as env } from '../../environments/environment';
 export class HeaderComponent implements OnInit {
   categories: ICategory[];
 
-  constructor(private http: HttpClient) {}
+  constructor(private recipesService: RecipesService) {}
 
   ngOnInit(): void {
     this.setCategories();
   }
 
-  setCategories() {
-    this.http
-      .get<ICategory[]>(`${env.dataEndpoint}/categories.json`)
-      .subscribe((response) => {
-        this.categories = response;
-      });
+  setCategories(): void {
+    this.recipesService.getRecipesCategories().subscribe((response) => {
+      this.categories = response;
+    });
   }
 }

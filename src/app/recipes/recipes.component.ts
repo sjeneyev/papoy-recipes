@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ICategory } from '../interfaces/interfaces';
-import { environment as env } from '../../environments/environment';
-import { HttpClient } from '@angular/common/http';
+import { RecipesService } from './recipes.service';
 
 @Component({
   selector: 'app-recipes',
@@ -9,14 +8,12 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./recipes.component.scss'],
 })
 export class RecipesComponent implements OnInit {
-  categories = [];
-  constructor(private http: HttpClient) {}
+  categories: ICategory[] = [];
+  constructor(private recipesService: RecipesService) {}
 
   ngOnInit(): void {
-    this.http
-      .get<ICategory[]>(`${env.dataEndpoint}/categories.json`)
-      .subscribe((response) => {
-        this.categories = response;
-      });
+    this.recipesService.getRecipesCategories().subscribe((response) => {
+      this.categories = response;
+    });
   }
 }

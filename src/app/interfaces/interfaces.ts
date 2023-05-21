@@ -9,5 +9,6 @@ export interface AuthResponseData {
 
 export interface ICategory {
   id: number;
+  name: string;
   title: string;
 }

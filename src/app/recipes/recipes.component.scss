@@ -10,17 +10,21 @@
   }
 
   .categories-recipes-list {
+    width: 68vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
   }
 }
 
-@media (min-width: 40rem) {
+@media (min-width: 20rem) {
   .recipes-wrap {
     width: 100%;
     display: flex;
   }
   .categories-recipes-list {
     flex-direction: row;
-    width: 80vw;
+    width: 100vw;
     height: 100vh;
   }
 }
