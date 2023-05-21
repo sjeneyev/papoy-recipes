@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ICategory } from '../interfaces/interfaces';
 import { RecipesService } from './recipes.service';
+import { DataStorageService } from '../shared/data-storage.service';
 
 @Component({
   selector: 'app-recipes',
@@ -9,11 +10,16 @@ import { RecipesService } from './recipes.service';
 })
 export class RecipesComponent implements OnInit {
   categories: ICategory[] = [];
-  constructor(private recipesService: RecipesService) {}
+  constructor(
+    private dataService: DataStorageService,
+    private recipesService: RecipesService
+  ) {}
 
   ngOnInit(): void {
-    this.recipesService.getRecipesCategories().subscribe((response) => {
-      this.categories = response;
-    });
+    this.dataService
+      .fetchRecipesCategories()
+      .subscribe(
+        () => (this.categories = this.recipesService.getRecipesCategories())
+      );
   }
 }

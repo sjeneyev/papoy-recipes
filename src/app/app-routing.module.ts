@@ -5,6 +5,7 @@ import { authGuard } from './auth/guards/auth.guard';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/recipes', pathMatch: 'full' },
+  { path: 'home', redirectTo: '/recipes', pathMatch: 'full' },
   { path: 'recipes', canActivate: [authGuard], component: RecipesComponent },
   {
     path: 'auth',
@@ -13,7 +14,9 @@ const appRoutes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(appRoutes, { preloadingStrategy: PreloadAllModules })],
+  imports: [
+    RouterModule.forRoot(appRoutes, { preloadingStrategy: PreloadAllModules }),
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

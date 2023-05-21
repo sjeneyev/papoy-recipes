@@ -20,7 +20,7 @@
     }
   }
 
-  .app-actions {
+  .app-actions-list {
     display: none;
   }
 }
@@ -30,10 +30,28 @@
     display: none;
   }
 
-  .header .app-actions {
+  .header .app-actions-list {
     display: flex;
-    ul {
-      flex-direction: row;
+
+    .app-action-item {
+      width: 9rem;
+      margin: 0 0.5rem 0 0.5rem;
+      cursor: pointer;
+      color: #090909;
+      border-radius: 0.5em;
+      border: 1px solid #e8e8e8;
+      transition: all 0.3s;
+      box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+
+      &:active {
+        color: #666;
+        box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
+      }
+
+      &.logout {
+        background-color: #e27373;
+        border: none;
+      }
     }
   }
 }

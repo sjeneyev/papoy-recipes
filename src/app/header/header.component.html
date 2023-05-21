@@ -17,10 +17,12 @@
       </ul>
     </mat-menu>
   </div>
-  <div class="app-actions">
-    <div class="app-action">התנתק</div>
-    <div class="app-action">הוסף מתכון</div>
-    <div class="app-action">הוסף קטגוריה</div>
+  <div class="app-actions-list">
+    <button class="app-action-item logout" (click)="onLogout()">התנתק</button>
+    <button class="app-action-item" (click)="onAddRecipe()">הוסף מתכון</button>
+    <button class="app-action-item" (click)="onAddCategory()">
+      הוסף קטגוריה
+    </button>
   </div>
 
   <a class="nav-link" href="" routerLink="/home">מתכוני פפוי</a>

@@ -9,8 +9,13 @@ import { Observable } from 'rxjs';
 })
 export class RecipesService {
   constructor(private http: HttpClient) {}
+  categories: ICategory[] = [];
 
-  getRecipesCategories(): Observable<ICategory[]> {
-    return this.http.get<ICategory[]>(`${env.dataEndpoint}/categories.json`);
+  getRecipesCategories() {
+    return this.categories.slice();
+  }
+
+  setRecipesCategories(categories) {
+    this.categories = categories;
   }
 }
