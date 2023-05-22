@@ -1,16 +1,15 @@
-import { Injectable } from '@angular/core';
+import { Recipe } from '../models/recipe.model';
 import {
-  Router, Resolve,
+  ActivatedRouteSnapshot,
+  ResolveFn,
   RouterStateSnapshot,
-  ActivatedRouteSnapshot
 } from '@angular/router';
-import { Observable, of } from 'rxjs';
+import { inject } from '@angular/core';
+import { DataStorageService } from '../shared/data-storage.service';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class RecipesResolver implements Resolve<boolean> {
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
-    return of(true);
-  }
-}
+export const recipesResolver: ResolveFn<Recipe[]> = (
+  route: ActivatedRouteSnapshot,
+  state: RouterStateSnapshot
+) => {
+  return inject(DataStorageService).fetchRecipe();
+};

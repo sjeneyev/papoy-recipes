@@ -6,8 +6,18 @@ import { loggedInGuard } from './guards/logged-in.guard';
 
 const authRoutes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'login', canActivate: [loggedInGuard], component: LoginComponent, pathMatch: 'full' },
-  { path: 'signup', canActivate: [loggedInGuard], component: SignupComponent, pathMatch: 'full' },
+  {
+    path: 'login',
+    canActivate: [loggedInGuard],
+    component: LoginComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'signup',
+    canActivate: [loggedInGuard],
+    component: SignupComponent,
+    pathMatch: 'full',
+  },
 ];
 
 @NgModule({

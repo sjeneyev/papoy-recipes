@@ -4,6 +4,7 @@ import { ICategory } from '../interfaces/interfaces';
 import { environment as env } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { CategoriesService } from '../categories/categories.service';
+import { Recipe } from '../models/recipe.model';
 
 @Injectable({
   providedIn: 'root',
@@ -24,5 +25,8 @@ export class DataStorageService {
       );
   }
 
-  fetchRecipe() {}
+  fetchRecipe() {
+    const test = [new Recipe('test', ['step1, step2'], 'none', [])];
+    return test;
+  }
 }

@@ -1,6 +1,5 @@
 <div class="login-page">
-  <div *ngIf="isLoading"
-       class="loading-backdrop"></div>
+  <div *ngIf="isLoading" class="loading-backdrop"></div>
   <mat-card class="form-container">
     <div class="login-form">
       <div class="form-title">
@@ -10,41 +9,48 @@
         <div class="form-inputs">
           <mat-form-field appearance="outline">
             <mat-label>מייל</mat-label>
-            <input formControlName="email"
-                   id="email"
-                   matInput
-                   required
-                   type="email" />
+            <input
+              formControlName="email"
+              id="email"
+              matInput
+              required
+              type="email"
+            />
           </mat-form-field>
           <mat-form-field appearance="outline">
             <mat-label>סיסמה</mat-label>
-            <input formControlName="password"
-                   id="password"
-                   matInput
-                   required
-                   type="password" />
+            <input
+              formControlName="password"
+              id="password"
+              matInput
+              required
+              type="password"
+            />
           </mat-form-field>
-          <mat-error *ngIf="errorMsg"
-                     class="">
+          <mat-error *ngIf="errorMsg" class="">
             <i class="mdi mdi-alert-circle"></i>
             <div>{{ errorMsg }}</div>
           </mat-error>
         </div>
         <div class="login-buttons">
-          <button (click)="login()"
-                  [disabled]="!loginForm.valid"
-                  [ngClass]="loginForm.valid ? 'valid' : ''"
-                  class="login-button"
-                  color="primary"
-                  mat-raised-button
-                  type="submit">
+          <button
+            (click)="login()"
+            [disabled]="!loginForm.valid"
+            [ngClass]="loginForm.valid ? 'valid' : ''"
+            class="login-button"
+            color="primary"
+            mat-raised-button
+            type="submit"
+          >
             התחבר
           </button>
-          <button class="login-button"
-                  color="primary"
-                  mat-raised-button
-                  routerLink="../signup"
-                  type="button">
+          <button
+            class="login-button"
+            color="primary"
+            mat-raised-button
+            routerLink="../signup"
+            type="button"
+          >
             הירשם
           </button>
         </div>

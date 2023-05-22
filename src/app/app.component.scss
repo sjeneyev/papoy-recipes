@@ -9,14 +9,16 @@
 
 .app-wrap {
   display: flex;
-  background: url('../assets/images/login_background.jpg') center/cover no-repeat border-box;
+  background: url('../assets/images/login_background.jpg') center/cover
+    no-repeat border-box;
   height: 100%;
   width: 100%;
   flex-direction: column;
   margin: 0;
 
   &.app-wrap-login {
-    background: url('../assets/images/login_background.jpg') center/cover no-repeat border-box;
+    background: url('../assets/images/login_background.jpg') center/cover
+      no-repeat border-box;
     height: 100%;
     width: 100%;
   }

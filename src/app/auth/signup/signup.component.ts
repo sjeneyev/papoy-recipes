@@ -31,7 +31,11 @@ export class SignupComponent {
         Validators.pattern(this.passwordValidatePattern),
       ],
     ],
-    confirmPassword: [null, [Validators.required], this.confirmPassword.bind(this)],
+    confirmPassword: [
+      null,
+      [Validators.required],
+      this.confirmPassword.bind(this),
+    ],
   });
 
   constructor(

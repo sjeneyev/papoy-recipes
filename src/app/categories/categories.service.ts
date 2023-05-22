@@ -5,8 +5,9 @@ import { ICategory } from '../interfaces/interfaces';
   providedIn: 'root',
 })
 export class CategoriesService {
-  constructor() {}
   categories: ICategory[] = [];
+
+  constructor() {}
 
   getCategories() {
     return this.categories.slice();

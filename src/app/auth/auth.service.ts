@@ -27,11 +27,14 @@ export class AuthService {
 
   login({ email, password }) {
     return this.http
-      .post<AuthResponseData>(`${env.authEndpoint}:signInWithPassword?key=${env.apiKey}`, {
-        email,
-        password,
-        returnSecureToken: true,
-      })
+      .post<AuthResponseData>(
+        `${env.authEndpoint}:signInWithPassword?key=${env.apiKey}`,
+        {
+          email,
+          password,
+          returnSecureToken: true,
+        }
+      )
       .pipe(
         tap((response) => {
           this.handleAuthentication(
@@ -67,7 +70,8 @@ export class AuthService {
     if (loadedUser.token) {
       this.user.next(loadedUser);
       const expirationDuration =
-        new Date(userData._tokenExpirationDate).getTime() - new Date().getTime();
+        new Date(userData._tokenExpirationDate).getTime() -
+        new Date().getTime();
       this.autoLogout(expirationDuration);
     }
   }
@@ -75,7 +79,10 @@ export class AuthService {
   register(formData) {
     formData = { ...formData, returnSecureToken: true };
     return this.http
-      .post<AuthResponseData>(`${env.authEndpoint}:signUp?key=${env.apiKey}`, formData)
+      .post<AuthResponseData>(
+        `${env.authEndpoint}:signUp?key=${env.apiKey}`,
+        formData
+      )
       .pipe(
         tap((response) => {
           this.handleAuthentication(
@@ -106,7 +113,12 @@ export class AuthService {
     this.tokenExpirationTimer = null;
   }
 
-  private handleAuthentication(email: string, userId: string, token: string, expiresIn: number) {
+  private handleAuthentication(
+    email: string,
+    userId: string,
+    token: string,
+    expiresIn: number
+  ) {
     const expirationDate = new Date(new Date().getTime() + expiresIn * 1000);
     const user = new User(email, userId, token, expirationDate);
 

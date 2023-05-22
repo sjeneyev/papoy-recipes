@@ -1,29 +1,29 @@
 <div class="header">
   <div class="action-menu">
-    <button mat-stroked-button [matMenuTriggerFor]="menu">
+    <button [matMenuTriggerFor]="menu" mat-stroked-button>
       <span>
         <mat-icon aria-hidden="false" fontIcon="menu"></mat-icon>
       </span>
     </button>
-    <mat-menu class="actions-menu" #menu="matMenu">
+    <mat-menu #menu="matMenu" class="actions-menu">
       <ul class="action-list">
-        <li class="action-item" mat-menu-item (click)="onAddRecipe()">
+        <li (click)="onAddRecipe()" class="action-item" mat-menu-item>
           הוסף מתכון
         </li>
-        <li class="action-item" mat-menu-item (click)="onAddCategory()">
+        <li (click)="onAddCategory()" class="action-item" mat-menu-item>
           הוסף קטגוריה
         </li>
-        <li class="action-item" mat-menu-item (click)="onLogout()">התנתק</li>
+        <li (click)="onLogout()" class="action-item" mat-menu-item>התנתק</li>
       </ul>
     </mat-menu>
   </div>
   <div class="app-actions-list">
-    <button class="app-action-item logout" (click)="onLogout()">התנתק</button>
-    <button class="app-action-item" (click)="onAddRecipe()">הוסף מתכון</button>
-    <button class="app-action-item" (click)="onAddCategory()">
+    <button (click)="onLogout()" class="app-action-item logout">התנתק</button>
+    <button (click)="onAddRecipe()" class="app-action-item">הוסף מתכון</button>
+    <button (click)="onAddCategory()" class="app-action-item">
       הוסף קטגוריה
     </button>
   </div>
 
-  <a class="nav-link" href="" routerLink="/home">מתכוני פפוי</a>
+  <a class="nav-link" href="" routerLink="/categories">מתכוני פפוי</a>
 </div>

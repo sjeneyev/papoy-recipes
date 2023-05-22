@@ -1,6 +1,5 @@
 <div class="signup-page">
-  <div *ngIf="isLoading"
-       class="loading-backdrop"></div>
+  <div *ngIf="isLoading" class="loading-backdrop"></div>
   <mat-card class="form-container">
     <div class="signup-form">
       <div class="form-title">
@@ -10,65 +9,89 @@
         <div class="form-inputs">
           <mat-form-field appearance="outline">
             <mat-label>שם פרטי</mat-label>
-            <input formControlName="firstName"
-                   id="firstName"
-                   matInput
-                   required
-                   type="text" />
-            <mat-error>{{ getErrorMessage(signupForm.controls['firstName']) }}</mat-error>
+            <input
+              formControlName="firstName"
+              id="firstName"
+              matInput
+              required
+              type="text"
+            />
+            <mat-error>{{
+              getErrorMessage(signupForm.controls['firstName'])
+            }}</mat-error>
           </mat-form-field>
           <mat-form-field appearance="outline">
             <mat-label>שם משפחה</mat-label>
-            <input formControlName="lastName"
-                   id="lastName"
-                   matInput
-                   required
-                   type="text" />
-            <mat-error>{{ getErrorMessage(signupForm.controls['lastName']) }}</mat-error>
+            <input
+              formControlName="lastName"
+              id="lastName"
+              matInput
+              required
+              type="text"
+            />
+            <mat-error>{{
+              getErrorMessage(signupForm.controls['lastName'])
+            }}</mat-error>
           </mat-form-field>
           <mat-form-field appearance="outline">
             <mat-label>מייל</mat-label>
-            <input formControlName="email"
-                   id="email"
-                   matInput
-                   required
-                   type="email" />
-            <mat-error>{{ getErrorMessage(signupForm.controls['email']) }}</mat-error>
+            <input
+              formControlName="email"
+              id="email"
+              matInput
+              required
+              type="email"
+            />
+            <mat-error>{{
+              getErrorMessage(signupForm.controls['email'])
+            }}</mat-error>
           </mat-form-field>
           <mat-form-field appearance="outline">
             <mat-label>סיסמה</mat-label>
-            <input formControlName="password"
-                   id="password"
-                   matInput
-                   required
-                   type="password" />
-            <mat-error>{{ getErrorMessage(signupForm.controls['password']) }}</mat-error>
+            <input
+              formControlName="password"
+              id="password"
+              matInput
+              required
+              type="password"
+            />
+            <mat-error>{{
+              getErrorMessage(signupForm.controls['password'])
+            }}</mat-error>
           </mat-form-field>
           <mat-form-field appearance="outline">
             <mat-label>אימות סיסמה</mat-label>
-            <input formControlName="confirmPassword"
-                   id="confirmPassword"
-                   matInput
-                   required
-                   type="password" />
-            <mat-error>{{ getErrorMessage(signupForm.controls['confirmPassword']) }}</mat-error>
+            <input
+              formControlName="confirmPassword"
+              id="confirmPassword"
+              matInput
+              required
+              type="password"
+            />
+            <mat-error>{{
+              getErrorMessage(signupForm.controls['confirmPassword'])
+            }}</mat-error>
           </mat-form-field>
         </div>
         <div class="signup-buttons">
-          <button (click)="signup()"
-                  [disabled]="!signupForm.valid"
-                  [ngClass]="signupForm.valid ? 'valid' : ''"
-                  class="signup-button"
-                  color="primary"
-                  mat-raised-button
-                  type="submit">
+          <button
+            (click)="signup()"
+            [disabled]="!signupForm.valid"
+            [ngClass]="signupForm.valid ? 'valid' : ''"
+            class="signup-button"
+            color="primary"
+            mat-raised-button
+            type="submit"
+          >
             הירשם
           </button>
-          <button class="signup-button"
-                  color="primary"
-                  mat-raised-button
-                  routerLink="../login"
-                  type="button">
+          <button
+            class="signup-button"
+            color="primary"
+            mat-raised-button
+            routerLink="../login"
+            type="button"
+          >
             התבחר
           </button>
         </div>

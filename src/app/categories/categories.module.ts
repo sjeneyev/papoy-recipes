@@ -8,7 +8,12 @@ import { CategoriesRoutingModule } from './categories-routing.module';
 import { CategoryDetailComponent } from './category-detail/category-detail.component';
 
 @NgModule({
-  declarations: [CategoriesComponent, CategoryListComponent, CategoryComponent, CategoryDetailComponent],
+  declarations: [
+    CategoriesComponent,
+    CategoryListComponent,
+    CategoryComponent,
+    CategoryDetailComponent,
+  ],
   imports: [SharedModule, RouterModule, CategoriesRoutingModule],
 })
 export class CategoriesModule {}

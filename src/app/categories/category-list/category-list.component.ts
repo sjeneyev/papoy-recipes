@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ICategory } from '../../interfaces/interfaces';
 import { DataStorageService } from '../../shared/data-storage.service';
-import { RecipesService } from '../../recipes/recipes.service';
 import { CategoriesService } from '../categories.service';
 
 @Component({
