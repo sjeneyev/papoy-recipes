@@ -1,0 +1,31 @@
+.recipes-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+  max-height: 85vh;
+
+  .categories-title {
+    margin: 1.5rem 0 1.5rem 0;
+  }
+
+  .categories-recipes-list {
+    width: 68vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+}
+
+@media (min-width: 40rem) {
+  .recipes-wrap {
+    width: 100%;
+    display: flex;
+  }
+
+  .categories-recipes-list {
+    flex-direction: row;
+    width: 100vw;
+    height: 100vh;
+  }
+}

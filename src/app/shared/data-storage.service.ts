@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { map, Observable, tap } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { ICategory } from '../interfaces/interfaces';
 import { environment as env } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { RecipesService } from '../recipes/recipes.service';
+import { CategoriesService } from '../categories/categories.service';
 
 @Injectable({
   providedIn: 'root',
@@ -11,15 +11,15 @@ import { RecipesService } from '../recipes/recipes.service';
 export class DataStorageService {
   constructor(
     private http: HttpClient,
-    private recipesService: RecipesService
+    private categoriesService: CategoriesService
   ) {}
 
-  fetchRecipesCategories(): Observable<ICategory[]> {
+  fetchCategories(): Observable<ICategory[]> {
     return this.http
       .get<ICategory[]>(`${env.dataEndpoint}/categories.json`)
       .pipe(
         tap((categories) => {
-          this.recipesService.setRecipesCategories(categories);
+          this.categoriesService.setRecipesCategories(categories);
         })
       );
   }

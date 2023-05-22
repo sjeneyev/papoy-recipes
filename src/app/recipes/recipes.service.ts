@@ -7,15 +7,4 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class RecipesService {
-  constructor(private http: HttpClient) {}
-  categories: ICategory[] = [];
-
-  getRecipesCategories() {
-    return this.categories.slice();
-  }
-
-  setRecipesCategories(categories) {
-    this.categories = categories;
-  }
-}
+export class RecipesService {}

@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ICategory } from '../interfaces/interfaces';
-import { RecipesService } from './recipes.service';
-import { DataStorageService } from '../shared/data-storage.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-recipes',
@@ -9,17 +7,9 @@ import { DataStorageService } from '../shared/data-storage.service';
   styleUrls: ['./recipes.component.scss'],
 })
 export class RecipesComponent implements OnInit {
-  categories: ICategory[] = [];
-  constructor(
-    private dataService: DataStorageService,
-    private recipesService: RecipesService
-  ) {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
-    this.dataService
-      .fetchRecipesCategories()
-      .subscribe(
-        () => (this.categories = this.recipesService.getRecipesCategories())
-      );
+    this.router.navigate(['./recipes/categories']);
   }
 }

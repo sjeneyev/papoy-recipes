@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { LoginComponent } from './login/login.component';
@@ -12,7 +11,6 @@ import { MatButtonModule } from '@angular/material/button';
 @NgModule({
   declarations: [LoginComponent, SignupComponent],
   imports: [
-    CommonModule,
     ReactiveFormsModule,
     AuthRoutingModule,
     SharedModule,

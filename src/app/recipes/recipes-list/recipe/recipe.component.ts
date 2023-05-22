@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-recipe',
   templateUrl: './recipe.component.html',
   styleUrls: ['./recipe.component.scss'],
 })
-export class RecipeComponent {}
+export class RecipeComponent {
+  @Input() index: number;
+}
