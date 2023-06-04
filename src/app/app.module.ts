@@ -11,6 +11,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { RecipesModule } from './recipes/recipes.module';
 import { CategoriesModule } from './categories/categories.module';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent],
@@ -21,6 +22,7 @@ import { CategoriesModule } from './categories/categories.module';
     BrowserAnimationsModule,
     HttpClientModule,
     MatIconModule,
+    MatCardModule,
     MatMenuModule,
     MatButtonModule,
     RecipesModule,

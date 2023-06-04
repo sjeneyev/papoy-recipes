@@ -6,6 +6,7 @@ import { CategoryComponent } from './category/category.component';
 import { RouterModule } from '@angular/router';
 import { CategoriesRoutingModule } from './categories-routing.module';
 import { CategoryDetailComponent } from './category-detail/category-detail.component';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,6 @@ import { CategoryDetailComponent } from './category-detail/category-detail.compo
     CategoryComponent,
     CategoryDetailComponent,
   ],
-  imports: [SharedModule, RouterModule, CategoriesRoutingModule],
+  imports: [SharedModule, RouterModule, CategoriesRoutingModule, MatCardModule],
 })
 export class CategoriesModule {}

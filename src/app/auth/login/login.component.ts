@@ -38,7 +38,7 @@ export class LoginComponent {
       next: (response) => {
         this.isLoading = false;
 
-        this.router.navigate(['./recipes']);
+        this.router.navigate(['./home']);
       },
       error: (errorMessage) => {
         this.isLoading = false;

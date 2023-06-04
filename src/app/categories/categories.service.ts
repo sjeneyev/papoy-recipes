@@ -18,6 +18,7 @@ export class CategoriesService {
   }
 
   getCategory(index: number): ICategory {
+    console.log(this.categories[index]);
     return this.categories[index];
   }
 }

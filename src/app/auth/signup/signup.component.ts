@@ -67,7 +67,7 @@ export class SignupComponent {
     authObs.subscribe({
       next: () => {
         this.isLoading = false;
-        this.router.navigate(['./dashboard']);
+        this.router.navigate(['./categories']);
       },
       error: (errorMessage) => {
         this.isLoading = false;
