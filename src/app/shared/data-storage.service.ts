@@ -20,7 +20,7 @@ export class DataStorageService {
       .get<ICategory[]>(`${env.dataEndpoint}/categories.json`)
       .pipe(
         tap((categories) => {
-          this.categoriesService.setRecipesCategories(categories);
+          this.categoriesService.setCategories(categories);
         })
       );
   }

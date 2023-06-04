@@ -13,7 +13,11 @@ export class CategoriesService {
     return this.categories.slice();
   }
 
-  setRecipesCategories(categories) {
+  setCategories(categories) {
     this.categories = categories;
+  }
+
+  getCategory(index: number): ICategory {
+    return this.categories[index];
   }
 }
