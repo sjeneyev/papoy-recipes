@@ -3,8 +3,8 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { authGuard } from './auth/guards/auth.guard';
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: '/recipes', pathMatch: 'full' },
-  { path: 'home', redirectTo: '/recipes', pathMatch: 'full' },
+  { path: '', redirectTo: '/categories', pathMatch: 'full' },
+  { path: 'home', redirectTo: '/categories', pathMatch: 'full' },
   {
     path: 'categories',
     canActivate: [authGuard],

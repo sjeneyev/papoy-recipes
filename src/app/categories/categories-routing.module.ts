@@ -7,9 +7,9 @@ import { CategoryDetailComponent } from './category-detail/category-detail.compo
 const routes: Routes = [
   {
     path: '',
-    component: CategoriesComponent,
+    component: CategoryListComponent,
     children: [
-      { path: '', component: CategoryListComponent },
+      { path: 'list', component: CategoryListComponent },
       { path: ':id', component: CategoryDetailComponent },
     ],
   },
