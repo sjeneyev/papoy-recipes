@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute, Data } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+import { CategoriesService } from '../categories.service';
 
 @Component({
   selector: 'app-category-detail',
@@ -7,13 +8,18 @@ import { ActivatedRoute, Data } from '@angular/router';
   styleUrls: ['./category-detail.component.scss'],
 })
 export class CategoryDetailComponent implements OnInit {
-  @Input() categoryTitle: string;
+  category: any;
+  id: number;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(
+    private categoriesService: CategoriesService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
-    this.route.data.subscribe((data: Data) => {
-      console.log(data);
+    this.route.params.subscribe((params: Params) => {
+      this.id = +params['id'];
+      this.category = this.categoriesService.getCategory(this.id);
     });
   }
 }

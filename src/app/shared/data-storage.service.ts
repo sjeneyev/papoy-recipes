@@ -25,8 +25,9 @@ export class DataStorageService {
       );
   }
 
+  fetchCategory() {}
+
   fetchRecipe() {
-    const test = [new Recipe('test', ['step1, step2'], 'none', [])];
-    return test;
+    return [new Recipe('test', ['step1, step2'], 'none', [])];
   }
 }

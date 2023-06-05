@@ -14,7 +14,7 @@ export const loggedInGuard = () => {
       if (!isAuth) {
         return true;
       }
-      return router.navigate(['./recipes']);
+      return router.navigate(['./categories']);
     })
   );
 };
