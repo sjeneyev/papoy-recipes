@@ -1,30 +1,24 @@
 import {
   ActivatedRouteSnapshot,
-  Resolve,
+  ResolveFn,
   RouterStateSnapshot,
 } from '@angular/router';
-import { ICategory } from '../interfaces/interfaces';
-import { CategoriesService } from './categories.service';
 import { DataStorageService } from '../shared/data-storage.service';
+import { ICategory } from '../interfaces/interfaces';
+import { inject } from '@angular/core';
+import { CategoriesService } from './categories.service';
 import { Observable } from 'rxjs';
-import { Injectable } from '@angular/core';
 
-@Injectable({ providedIn: 'root' })
-export class CategoryResolver implements Resolve<ICategory[]> {
-  constructor(
-    private dataStorageService: DataStorageService,
-    private categoriesService: CategoriesService
-  ) {}
-
-  resolve(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ): Observable<ICategory[]> | Promise<ICategory[]> | ICategory[] {
-    const categories = this.categoriesService.getCategories();
-    if (categories.length === 0) {
-      return this.dataStorageService.fetchCategories();
-    } else {
-      return categories;
-    }
+export const categoryResolver: ResolveFn<ICategory[]> = (
+  route: ActivatedRouteSnapshot,
+  state: RouterStateSnapshot
+): Observable<ICategory[]> | Promise<ICategory[]> | ICategory[] => {
+  const service: CategoriesService = inject(CategoriesService);
+  const dataService: DataStorageService = inject(DataStorageService);
+  const categories: ICategory[] = service.getCategories();
+  if (categories.length === 0) {
+    return dataService.fetchCategories();
+  } else {
+    return categories;
   }
-}
+};
