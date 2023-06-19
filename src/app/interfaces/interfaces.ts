@@ -21,3 +21,9 @@ export interface IRecipe {
   imagePath: string;
   preparationSteps: string[];
 }
+
+export interface IIngredient {
+  name: string;
+  amount: number;
+  units: string;
+}

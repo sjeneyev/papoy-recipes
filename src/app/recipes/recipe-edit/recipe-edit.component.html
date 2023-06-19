@@ -1,1 +1,43 @@
-<p>recipe-edit works!</p>
+<div class="edit-form-wrap">
+  <form [formGroup]="recipeForm">
+    <div class="form-inputs">
+      <mat-form-field appearance="outline">
+        <mat-label>שם המנה</mat-label>
+        <input
+          formControlName="recipeName"
+          id="recipeName"
+          matInput
+          required
+          type="text"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>תמונה</mat-label>
+        <input
+          formControlName="imagePath"
+          id="imagePath"
+          matInput
+          required
+          type="text"
+        />
+      </mat-form-field>
+      <div formArrayName="ingredients">
+        <div
+          class="row"
+          *ngFor="let ingredientCtrl of controls; let i = index"
+          style="margin-top: 10px"
+        >
+          <mat-form-field appearance="outline">
+            <mat-label>רכיבים</mat-label>
+            <input
+              [formControlName]="i"
+              id="ingredients"
+              matInput
+              type="text"
+            />
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

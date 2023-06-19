@@ -5,9 +5,19 @@ import { RouterModule } from '@angular/router';
 import { RecipeEditComponent } from './recipe-edit/recipe-edit.component';
 import { RecipesListComponent } from './recipes-list/recipes-list.component';
 import { SharedModule } from '../shared/shared.module';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [RecipesComponent, RecipeEditComponent, RecipesListComponent],
-  imports: [SharedModule, RouterModule, RecipesRoutingModule],
+  imports: [
+    SharedModule,
+    RouterModule,
+    RecipesRoutingModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+  ],
 })
 export class RecipesModule {}

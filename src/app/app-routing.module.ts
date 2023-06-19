@@ -5,6 +5,7 @@ import { authGuard } from './auth/guards/auth.guard';
 const appRoutes: Routes = [
   { path: '', redirectTo: '/categories', pathMatch: 'full' },
   { path: 'home', redirectTo: '/categories', pathMatch: 'full' },
+
   {
     path: 'categories',
     canActivate: [authGuard],
