@@ -1,14 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RecipesService } from '../recipes.service';
-import {
-  FormArray,
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
-import { Ingredient } from '../../models/ingredient.model';
+import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-recipe-edit',
@@ -21,7 +14,6 @@ export class RecipeEditComponent implements OnInit {
   recipeForm: FormGroup;
 
   constructor(
-    private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private recipesService: RecipesService,
     private router: Router
@@ -34,17 +26,13 @@ export class RecipeEditComponent implements OnInit {
   initForm() {
     let recipeName = '';
     let recipeImagePath = '';
-    let preparationSteps = [];
+    const preparationSteps = new FormArray([]);
     const recipeIngredients = new FormArray([]);
-
-    this.recipeForm = this.formBuilder.group({
-      recipeName: [recipeName, Validators.required],
-      imagePath: [recipeImagePath],
-      // description: [preparationSteps, Validators.required],
-      ingredients: this.formBuilder.array([
-        this.formBuilder.control(''),
-        this.formBuilder.control(''),
-      ]),
+    this.recipeForm = new FormGroup({
+      recipeName: new FormControl(recipeName, [Validators.required]),
+      imagePath: new FormControl(recipeImagePath, []),
+      ingredients: recipeIngredients,
+      prepSteps: preparationSteps,
     });
   }
 
@@ -53,7 +41,11 @@ export class RecipeEditComponent implements OnInit {
   }
 
   get controls() {
-    // a getter!
     return (this.recipeForm.get('ingredients') as FormArray).controls;
+  }
+
+  handleFileInput(event) {
+    const file = event.target.files[0];
+    console.log(file);
   }
 }

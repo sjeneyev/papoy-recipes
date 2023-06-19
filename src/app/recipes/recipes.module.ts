@@ -8,6 +8,7 @@ import { SharedModule } from '../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [RecipesComponent, RecipeEditComponent, RecipesListComponent],
@@ -18,6 +19,7 @@ import { MatInputModule } from '@angular/material/input';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
+    MatButtonModule,
   ],
 })
 export class RecipesModule {}

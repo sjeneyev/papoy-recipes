@@ -11,31 +11,48 @@
           type="text"
         />
       </mat-form-field>
-      <mat-form-field appearance="outline">
-        <mat-label>תמונה</mat-label>
-        <input
-          formControlName="imagePath"
-          id="imagePath"
-          matInput
-          required
-          type="text"
-        />
-      </mat-form-field>
-      <div formArrayName="ingredients">
+      <button
+        type="button"
+        mat-raised-button
+        color="primary"
+        (click)="fileInput.click()"
+      >
+        הוסף תמונה
+      </button>
+      <input
+        hidden
+        (change)="handleFileInput($event)"
+        #fileInput
+        type="file"
+        id="file"
+      />
+      <br />
+      <p>ingredients</p>
+      <div formArrayName="ingredients-section">
         <div
           class="row"
           *ngFor="let ingredientCtrl of controls; let i = index"
           style="margin-top: 10px"
         >
-          <mat-form-field appearance="outline">
-            <mat-label>רכיבים</mat-label>
+          <div class="col-xs-8">
+            <input type="text" class="form-control" formControlName="name" />
+          </div>
+          <div class="col-xs-2">
             <input
-              [formControlName]="i"
-              id="ingredients"
-              matInput
-              type="text"
+              type="number"
+              class="form-control"
+              formControlName="amount"
             />
-          </mat-form-field>
+          </div>
+          <!--          <mat-form-field appearance="outline">-->
+          <!--            <mat-label>רכיבים</mat-label>-->
+          <!--            <input-->
+          <!--              [formControlName]="i"-->
+          <!--              id="ingredients"-->
+          <!--              matInput-->
+          <!--              type="text"-->
+          <!--            />-->
+          <!--          </mat-form-field>-->
         </div>
       </div>
     </div>

@@ -5,4 +5,13 @@
   justify-content: center;
   margin-top: 7rem;
   height: 100%;
+
+  .form-inputs {
+    display: flex;
+    flex-direction: column;
+  }
+
+  p {
+    margin: auto;
+  }
 }
