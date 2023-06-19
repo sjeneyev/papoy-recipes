@@ -1,31 +1,45 @@
 <div class="header">
   <div class="action-menu">
-    <button [matMenuTriggerFor]="menu" mat-stroked-button>
+    <button [matMenuTriggerFor]="menu"
+            mat-stroked-button>
       <span>
-        <mat-icon aria-hidden="false" fontIcon="menu"></mat-icon>
+        <mat-icon aria-hidden="false"
+                  fontIcon="menu"></mat-icon>
       </span>
     </button>
-    <mat-menu #menu="matMenu" class="actions-menu">
+    <mat-menu #menu="matMenu"
+              class="actions-menu">
       <ul class="action-list">
-        <li (click)="onAddRecipe()" class="action-item" mat-menu-item>
+        <li (click)="onAddRecipe()"
+            class="action-item"
+            mat-menu-item>
           <!--          <a routerLink="recipes/new" style="text-decoration: none">-->
           הוסף מתכון
           <!--          </a>-->
         </li>
-        <li (click)="onAddCategory()" class="action-item" mat-menu-item>
+        <li (click)="onAddCategory()"
+            class="action-item"
+            mat-menu-item>
           הוסף קטגוריה
         </li>
-        <li (click)="onLogout()" class="action-item" mat-menu-item>התנתק</li>
+        <li (click)="onLogout()"
+            class="action-item"
+            mat-menu-item>התנתק</li>
       </ul>
     </mat-menu>
   </div>
   <div class="app-actions-list">
-    <button (click)="onLogout()" class="app-action-item logout">התנתק</button>
-    <button (click)="onAddRecipe()" class="app-action-item">הוסף מתכון</button>
-    <button (click)="onAddCategory()" class="app-action-item">
+    <button (click)="onLogout()"
+            class="app-action-item logout">התנתק</button>
+    <button (click)="onAddRecipe()"
+            class="app-action-item">הוסף מתכון</button>
+    <button (click)="onAddCategory()"
+            class="app-action-item">
       הוסף קטגוריה
     </button>
   </div>
 
-  <a class="nav-link" href="" routerLink="/categories">מתכוני פפוי</a>
+  <a class="nav-link"
+     href=""
+     routerLink="/categories">מתכוני פפוי</a>
 </div>
