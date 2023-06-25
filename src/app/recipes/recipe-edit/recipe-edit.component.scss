@@ -3,8 +3,20 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 7rem;
+  margin-top: 3rem;
   height: 100%;
+
+  .edit-form-container {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    width: 80vw;
+    height: 75vh;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    opacity: 0.8;
+  }
 
   .form-inputs {
     display: flex;

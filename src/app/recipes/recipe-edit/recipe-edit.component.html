@@ -1,44 +1,51 @@
 <div class="edit-form-wrap">
-  <form [formGroup]="recipeForm">
-    <div class="form-inputs">
-      <mat-form-field appearance="outline">
-        <mat-label>שם המנה</mat-label>
-        <input formControlName="recipeName"
-               id="recipeName"
-               matInput
-               required
-               type="text" />
-      </mat-form-field>
-      <button type="button"
-              mat-raised-button
-              color="primary"
-              (click)="fileInput.click()">
-        הוסף תמונה
-      </button>
-      <input hidden
-             (change)="handleFileInput($event)"
-             #fileInput
-             type="file"
-             id="file" />
-      <br />
-      <p>ingredients</p>
-      <div formArrayName="ingredients-section">
-        <div class="row"
-             *ngFor="let ingredientCtrl of controls; let i = index"
-             style="margin-top: 10px">
-          <div class="col-xs-8">
-            <input type="text"
-                   class="form-control"
-                   formControlName="name" />
+  <mat-card class="edit-form-container">
+    <mat-stepper orientation="vertical" [linear]="false" #stepper>
+      <mat-step [stepControl]="nameFormGroup">
+        <form [formGroup]="nameFormGroup">
+          <ng-template matStepLabel>שם המנה</ng-template>
+          <mat-form-field>
+            <mat-label>שם המנה</mat-label>
+            <input
+              matInput
+              placeholder="שם המנה"
+              formControlName="recipeName"
+              required
+            />
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperNext>הבא</button>
           </div>
-          <div class="col-xs-2">
-            <input type="number"
-                   class="form-control"
-                   formControlName="amount" />
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="ingredientsGroup">
+        <form [formGroup]="ingredientsGroup">
+          <ng-template matStepLabel>רכיבים</ng-template>
+          <mat-form-field>
+            <mat-label>Address</mat-label>
+            <input
+              matInput
+              formControlName="ingredients"
+              placeholder="Ex. 1 Main St, New York, NY"
+              required
+            />
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious>חזור</button>
+            <button mat-button matStepperNext>הבא</button>
           </div>
-        </div>
-      </div>
-      <div class="preparation-steps-section"></div>
-    </div>
-  </form>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="preparationStepsGroup">
+        <form [formGroup]="preparationStepsGroup">
+          <ng-template matStepLabel>הוראות הכנה</ng-template>
+          <p>הוראות הכנה</p>
+          <div>
+            <button mat-button matStepperPrevious>חזור</button>
+            <button mat-button (click)="stepper.reset()">איפוס</button>
+          </div>
+        </form>
+      </mat-step>
+    </mat-stepper>
+  </mat-card>
 </div>
