@@ -1,6 +1,6 @@
 <div class="edit-form-wrap">
   <mat-card class="edit-form-container">
-    <mat-stepper orientation="vertical" [linear]="false" #stepper>
+    <mat-stepper orientation="vertical" [linear]="true" #stepper>
       <mat-step [stepControl]="nameFormGroup">
         <form [formGroup]="nameFormGroup">
           <ng-template matStepLabel>שם המנה</ng-template>
@@ -20,18 +20,15 @@
       </mat-step>
       <mat-step [stepControl]="ingredientsGroup">
         <form [formGroup]="ingredientsGroup">
-          <ng-template matStepLabel>רכיבים</ng-template>
+          <ng-template matStepLabel>מרכיבים</ng-template>
           <mat-form-field>
-            <mat-label>Address</mat-label>
-            <input
-              matInput
-              formControlName="ingredients"
-              placeholder="Ex. 1 Main St, New York, NY"
-              required
-            />
+            <mat-label>מרכיב</mat-label>
+            <input matInput placeholder="מרכיב" required />
           </mat-form-field>
           <div>
-            <button mat-button matStepperPrevious>חזור</button>
+            <button mat-button>הוסף מרכיב</button>
+
+            <button mat-button matStepperPrevious>קודם</button>
             <button mat-button matStepperNext>הבא</button>
           </div>
         </form>
@@ -41,11 +38,19 @@
           <ng-template matStepLabel>הוראות הכנה</ng-template>
           <p>הוראות הכנה</p>
           <div>
-            <button mat-button matStepperPrevious>חזור</button>
+            <button mat-button matStepperPrevious>קודם</button>
             <button mat-button (click)="stepper.reset()">איפוס</button>
           </div>
         </form>
       </mat-step>
     </mat-stepper>
+    <button
+      mat-raised-button
+      color="primary"
+      type="button"
+      (click)="onSubmitForm()"
+    >
+      שמור
+    </button>
   </mat-card>
 </div>

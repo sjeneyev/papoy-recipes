@@ -23,12 +23,15 @@ export class RecipeEditComponent implements OnInit {
     recipeName: ['', Validators.required],
   });
 
-  ingredientsGroup = this._formBuilder.group({
-    ingredients: [[], Validators.required],
-  });
+  ingredientsGroup = this._formBuilder.group([
+    this._formBuilder.array([
+      this._formBuilder.control('', [Validators.required]),
+      this._formBuilder.control('', [Validators.required]),
+    ]),
+  ]);
 
   preparationStepsGroup = this._formBuilder.group({
-    prepSteps: [[], Validators.required],
+    prepSteps: ['', Validators.required],
   });
 
   constructor(
@@ -44,11 +47,13 @@ export class RecipeEditComponent implements OnInit {
 
   initForm() {}
 
+  onSubmitForm() {}
+
   onCancel() {
     this.router.navigate(['../'], { relativeTo: this.route });
   }
 
   get controls() {
-    return (this.recipeForm.get('ingredients') as FormArray).controls;
+    return (this.recipeForm.get('ingredientsGroup') as FormArray).controls;
   }
 }
