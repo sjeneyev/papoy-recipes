@@ -18,21 +18,9 @@ export class RecipeEditComponent implements OnInit {
   recipeId: number;
   editMode = false;
   recipeForm: FormGroup;
-
-  nameFormGroup = this._formBuilder.group({
-    recipeName: ['', Validators.required],
-  });
-
-  ingredientsGroup = this._formBuilder.group([
-    this._formBuilder.array([
-      this._formBuilder.control('', [Validators.required]),
-      this._formBuilder.control('', [Validators.required]),
-    ]),
-  ]);
-
-  preparationStepsGroup = this._formBuilder.group({
-    prepSteps: ['', Validators.required],
-  });
+  nameFormGroup: FormGroup;
+  ingredientsGroup: FormGroup;
+  preparationStepsGroup: FormGroup;
 
   constructor(
     private route: ActivatedRoute,
@@ -42,12 +30,31 @@ export class RecipeEditComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.initForm();
+    this.initForms();
   }
 
-  initForm() {}
+  initForms() {
+    this.nameFormGroup = this._formBuilder.group({
+      recipeName: ['', Validators.required],
+    });
+    this.ingredientsGroup = this._formBuilder.group([
+      this._formBuilder.array([
+        this._formBuilder.control('', [Validators.required]),
+        this._formBuilder.control('', [Validators.required]),
+      ]),
+    ]);
+    this.preparationStepsGroup = this._formBuilder.group({
+      prepSteps: ['', Validators.required],
+    });
 
-  onSubmitForm() {}
+    if (this.editMode) {
+      // Populate Form values here
+    }
+  }
+
+  onSubmitForm() {
+    // Submit the form
+  }
 
   onCancel() {
     this.router.navigate(['../'], { relativeTo: this.route });
