@@ -1,20 +1,21 @@
 <div class="edit-form-wrap">
   <mat-card class="edit-form-container">
-    <mat-stepper orientation="vertical" [linear]="true" #stepper>
+    <mat-stepper orientation="vertical"
+                 linear
+                 #stepper>
       <mat-step [stepControl]="nameFormGroup">
         <form [formGroup]="nameFormGroup">
           <ng-template matStepLabel>שם המנה</ng-template>
           <mat-form-field>
             <mat-label>שם המנה</mat-label>
-            <input
-              matInput
-              placeholder="שם המנה"
-              formControlName="recipeName"
-              required
-            />
+            <input matInput
+                   placeholder="שם המנה"
+                   formControlName="recipeName"
+                   required />
           </mat-form-field>
           <div>
-            <button mat-button matStepperNext>הבא</button>
+            <button mat-button
+                    matStepperNext>הבא</button>
           </div>
         </form>
       </mat-step>
@@ -23,13 +24,20 @@
           <ng-template matStepLabel>מרכיבים</ng-template>
           <mat-form-field>
             <mat-label>מרכיב</mat-label>
-            <input matInput placeholder="מרכיב" required />
+            <div formArrayName="ingredients">
+              <input matInput
+                     formControlName="0"
+                     placeholder="מרכיב" />
+            </div>
           </mat-form-field>
           <div>
-            <button mat-button>הוסף מרכיב</button>
+            <button mat-button
+                    (click)="onAddIngredient()">הוסף מרכיב</button>
 
-            <button mat-button matStepperPrevious>קודם</button>
-            <button mat-button matStepperNext>הבא</button>
+            <button mat-button
+                    matStepperPrevious>קודם</button>
+            <button mat-button
+                    matStepperNext>הבא</button>
           </div>
         </form>
       </mat-step>
@@ -38,18 +46,18 @@
           <ng-template matStepLabel>הוראות הכנה</ng-template>
           <p>הוראות הכנה</p>
           <div>
-            <button mat-button matStepperPrevious>קודם</button>
-            <button mat-button (click)="stepper.reset()">איפוס</button>
+            <button mat-button
+                    matStepperPrevious>קודם</button>
+            <button mat-button
+                    (click)="stepper.reset()">איפוס</button>
           </div>
         </form>
       </mat-step>
     </mat-stepper>
-    <button
-      mat-raised-button
-      color="primary"
-      type="button"
-      (click)="onSubmitForm()"
-    >
+    <button mat-raised-button
+            color="primary"
+            type="button"
+            (click)="onSubmitForm()">
       שמור
     </button>
   </mat-card>

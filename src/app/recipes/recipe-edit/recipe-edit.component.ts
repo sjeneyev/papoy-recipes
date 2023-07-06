@@ -37,12 +37,14 @@ export class RecipeEditComponent implements OnInit {
     this.nameFormGroup = this._formBuilder.group({
       recipeName: ['', Validators.required],
     });
-    this.ingredientsGroup = this._formBuilder.group([
-      this._formBuilder.array([
+
+    this.ingredientsGroup = this._formBuilder.group({
+      ingredients: this._formBuilder.array([
         this._formBuilder.control('', [Validators.required]),
-        this._formBuilder.control('', [Validators.required]),
+        // this._formBuilder.control('', [Validators.required]),
       ]),
-    ]);
+    });
+
     this.preparationStepsGroup = this._formBuilder.group({
       prepSteps: ['', Validators.required],
     });
@@ -54,6 +56,11 @@ export class RecipeEditComponent implements OnInit {
 
   onSubmitForm() {
     // Submit the form
+    console.log(
+      this.nameFormGroup,
+      this.ingredientsGroup,
+      this.preparationStepsGroup
+    );
   }
 
   onCancel() {
@@ -62,5 +69,11 @@ export class RecipeEditComponent implements OnInit {
 
   get controls() {
     return (this.recipeForm.get('ingredientsGroup') as FormArray).controls;
+  }
+
+  onAddIngredient() {
+    (this.ingredientsGroup.get('ingredients') as FormArray).push(
+      new FormControl('', Validators.required)
+    );
   }
 }
