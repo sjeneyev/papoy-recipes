@@ -46,7 +46,9 @@ export class RecipeEditComponent implements OnInit {
     });
 
     this.preparationStepsGroup = this._formBuilder.group({
-      prepSteps: ['', Validators.required],
+      prepSteps: this._formBuilder.array([
+        this._formBuilder.control('', [Validators.required]),
+      ]),
     });
 
     if (this.editMode) {
@@ -64,16 +66,26 @@ export class RecipeEditComponent implements OnInit {
   }
 
   onCancel() {
-    this.router.navigate(['../'], { relativeTo: this.route });
+    this.router.navigate(['./categories']);
   }
 
-  get controls() {
-    return (this.recipeForm.get('ingredientsGroup') as FormArray).controls;
+  get ingredientControls() {
+    return (this.ingredientsGroup.get('ingredients') as FormArray).controls;
+  }
+
+  get prepStepsControls() {
+    return (this.preparationStepsGroup.get('prepSteps') as FormArray).controls;
   }
 
   onAddIngredient() {
     (this.ingredientsGroup.get('ingredients') as FormArray).push(
-      new FormControl('', Validators.required)
+      new FormControl('')
+    );
+  }
+
+  onAddPreparationSteps() {
+    (this.preparationStepsGroup.get('prepSteps') as FormArray).push(
+      new FormControl('')
     );
   }
 }

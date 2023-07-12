@@ -16,14 +16,33 @@
     align-items: center;
     align-content: center;
     opacity: 0.8;
-  }
 
-  .form-inputs {
-    display: flex;
-    flex-direction: column;
-  }
+    .stepper-wrap {
+      overflow-y: auto;
+      max-height: 60vh;
+    }
 
-  p {
-    margin: auto;
+    .form-inputs {
+      display: flex;
+      flex-direction: column;
+    }
+
+    p {
+      margin: auto;
+    }
+
+    .ingredients-tab,
+    .prep-steps {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .recipe-form-buttons {
+      display: flex;
+      justify-content: space-evenly;
+      width: 100%;
+      margin: 1rem 0 0 0;
+      flex-direction: row;
+    }
   }
 }

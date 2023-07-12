@@ -1,64 +1,92 @@
 <div class="edit-form-wrap">
   <mat-card class="edit-form-container">
-    <mat-stepper orientation="vertical"
-                 linear
-                 #stepper>
-      <mat-step [stepControl]="nameFormGroup">
-        <form [formGroup]="nameFormGroup">
-          <ng-template matStepLabel>שם המנה</ng-template>
-          <mat-form-field>
-            <mat-label>שם המנה</mat-label>
-            <input matInput
-                   placeholder="שם המנה"
-                   formControlName="recipeName"
-                   required />
-          </mat-form-field>
-          <div>
-            <button mat-button
-                    matStepperNext>הבא</button>
-          </div>
-        </form>
-      </mat-step>
-      <mat-step [stepControl]="ingredientsGroup">
-        <form [formGroup]="ingredientsGroup">
-          <ng-template matStepLabel>מרכיבים</ng-template>
-          <mat-form-field>
-            <mat-label>מרכיב</mat-label>
-            <div formArrayName="ingredients">
+    <div class="stepper-wrap">
+      <mat-stepper orientation="vertical"
+                   linear
+                   #stepper>
+        <mat-step [stepControl]="nameFormGroup">
+          <form [formGroup]="nameFormGroup">
+            <ng-template matStepLabel>שם המנה</ng-template>
+            <mat-form-field>
+              <mat-label>שם המנה</mat-label>
               <input matInput
-                     formControlName="0"
-                     placeholder="מרכיב" />
+                     placeholder="שם המנה"
+                     formControlName="recipeName"
+                     required />
+            </mat-form-field>
+            <div>
+              <button mat-button
+                      matStepperNext>הבא</button>
             </div>
-          </mat-form-field>
-          <div>
-            <button mat-button
-                    (click)="onAddIngredient()">הוסף מרכיב</button>
+          </form>
+        </mat-step>
+        <mat-step [stepControl]="ingredientsGroup">
+          <form [formGroup]="ingredientsGroup"
+                class="ingredients-tab">
+            <ng-template matStepLabel>מרכיבים</ng-template>
+            <div *ngFor="let ingredient of ingredientControls; let i = index">
+              <mat-form-field>
+                <mat-label>מרכיב</mat-label>
+                <div formArrayName="ingredients">
+                  <input matInput
+                         [formControlName]="i"
+                         placeholder="מרכיב" />
+                </div>
+              </mat-form-field>
+            </div>
+            <div>
+              <button mat-button
+                      (click)="onAddIngredient()">הוסף מרכיב</button>
 
-            <button mat-button
-                    matStepperPrevious>קודם</button>
-            <button mat-button
-                    matStepperNext>הבא</button>
-          </div>
-        </form>
-      </mat-step>
-      <mat-step [stepControl]="preparationStepsGroup">
-        <form [formGroup]="preparationStepsGroup">
-          <ng-template matStepLabel>הוראות הכנה</ng-template>
-          <p>הוראות הכנה</p>
-          <div>
-            <button mat-button
-                    matStepperPrevious>קודם</button>
-            <button mat-button
-                    (click)="stepper.reset()">איפוס</button>
-          </div>
-        </form>
-      </mat-step>
-    </mat-stepper>
-    <button mat-raised-button
-            color="primary"
-            type="button"
-            (click)="onSubmitForm()">
-      שמור
-    </button>
+              <button mat-button
+                      matStepperPrevious>קודם</button>
+              <button mat-button
+                      matStepperNext>הבא</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step [stepControl]="preparationStepsGroup">
+          <form [formGroup]="preparationStepsGroup">
+            <ng-template matStepLabel>הוראות הכנה</ng-template>
+            <div *ngFor="let step of prepStepsControls; let j = index"
+                 class="prep-steps">
+              <mat-form-field>
+                <mat-label>מרכיב</mat-label>
+                <div formArrayName="prepSteps">
+                  <input matInput
+                         [formControlName]="j"
+                         placeholder="הוראת הכנה" />
+                </div>
+              </mat-form-field>
+            </div>
+            <div>
+              <button mat-button
+                      (click)="onAddPreparationSteps()">
+                עוד שלב
+              </button>
+
+              <button mat-button
+                      matStepperPrevious>קודם</button>
+              <button mat-button
+                      (click)="stepper.reset()">איפוס</button>
+            </div>
+          </form>
+        </mat-step>
+      </mat-stepper>
+    </div>
+    <div class="recipe-form-buttons">
+      <button mat-raised-button
+              color="primary"
+              type="button"
+              (click)="onSubmitForm()">
+        שמור
+      </button>
+      <button mat-raised-button
+              type="button"
+              color="warn"
+              (click)="onCancel()">
+        ביטול
+      </button>
+    </div>
   </mat-card>
 </div>
